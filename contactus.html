@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            
+background: linear-gradient(90deg, rgba(87,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(157,0,0,1) 100%);
+            color: #fff;
+            text-align: center;
+        }
+        
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        h1 a{
+            color: white;
+            text-decoration: none;
+        }
+
+        
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgb(0, 0, 0);
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h2:hover {
+            transform: scale(1.1);
+            color: #790000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 0 0 10px #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #790000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            transform: scale(1.05);
+        }
+
+        .form-message {
+            font-size: 1rem;
+            color: #00ff00;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .form-error {
+            font-size: 1rem;
+            color: #ff0000;
+            margin-top: 20px;
+            display: none;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .form-group {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        
+
+       footer p {
+           color: white;
+           text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <header>
+            <h1><a href="index  .html">Theatre World</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="auditorium.html">Auditoriums</a></li>
+                    <li><a href="artist gallery.html">Artist Gallery</a></li>
+                    <li><a href="show.html">Upcoming Shows</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                    <li><a href="index  .html#magazines">Magazines</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+            <div class="form-message">Your message has been sent successfully!</div>
+            <div class="form-error">Oops! Something went wrong. Please try again.</div>
+        </form>
+    </div>
+    <footer>
+        <p>© 2025 Theatre World. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(event) {
+                event.preventDefault(); 
+
+                
+                const formData = {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    message: $('#message').val()
+                };
+
+                $('.form-message').hide();
+                $('.form-error').hide();
+
+                
+                setTimeout(() => {
+                    if (formData.name && formData.email && formData.message) {
+                        $('.form-message').fadeIn();
+                    } else {
+                        $('.form-error').fadeIn();
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

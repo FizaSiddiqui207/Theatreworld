@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheatreWorld Awards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, rgba(51, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(62, 0, 0, 1) 100%);
+            color: #fff;
+        }
+
+        header {
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        h1 a{
+            text-decoration: none;
+            color: white;
+        }
+        h2, h3 {
+            text-align: center;
+            margin: 20px;
+            animation: fadeIn 2s ease;
+            color: #fff;
+            transition: color 0.3s ease;
+
+        }
+
+        h2:hover,
+        h3:hover {
+            color: rgb(228, 6, 6);
+        }
+
+        .awards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            animation: slideIn 2s ease-in-out;
+        }
+
+        .award-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.5s ease-in-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+
+        }
+
+        .award-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+
+        }
+
+        .award-card img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        header {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+        footer {
+            background-color: black;
+            padding: 10px;
+            margin-top: 50px;
+            font-size: 1.2em;
+        }
+
+        footer p {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index  .html">Theatre World</a></h1>
+        <nav>
+            <ul>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="auditorium.html">Auditoriums</a></li>
+                <li><a href="artist gallery.html">Artist Gallery</a></li>
+                <li><a href="show.html">Upcoming Shows</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="index  .html#magazines">Magazines</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>TheatreWorld Awards</h2>
+    <h3>Celebrating Excellence in Global Theatre</h3>
+    <div class="awards-container">
+        <div class="award-card">
+            <img src="TonyAwards.PNG.jpg" alt="Tony Award">
+            <h3>Tony Awards</h3>
+            <p>The Tony Awards, officially known as the Antoinette Perry Awards for Excellence in Theatre, are presented
+                annually to honor outstanding achievement in Broadway theater. Established in 1947 by the American
+                Theatre Wing and The Broadway League, the awards recognize productions, performances, and creative
+                contributions in categories such as Best Musical, Best Play, and Best Actor/Actress. The ceremony is
+                held in New York City and is one of the most prestigious honors in the theater industry.</p>
+        </div>
+        <div class="award-card">
+            <img src="OlivierAward.PNG" alt="Olivier Award">
+            <h3>Olivier Awards</h3>
+            <p>The Olivier Awards, officially the Laurence Olivier Awards, are the most prestigious theater awards in
+                the United Kingdom. Named after the legendary British actor and director Laurence Olivier, the awards
+                were established in 1976 by the Society of London Theatre. They honor excellence in professional theater
+                in London’s West End and beyond, covering categories such as Best New Play, Best Actor/Actress, and Best
+                Musical. The annual ceremony is a highlight of the UK theater calendar. </p>
+        </div>
+        <div class="award-card">
+            <img src="MoliereAward.PNG" alt="Molière Award">
+            <h3>Molière Awards</h3>
+            <p> The Molière Awards (Les Molières) are the premier theater awards in France, named after the 17th-century
+                French playwright Molière. They were established in 1987 and celebrate outstanding achievements in
+                French theater, including acting, directing, and stage production. The awards encompass categories for
+                both plays and musicals performed across France. The ceremony, held in Paris, serves as a benchmark of
+                excellence in the French theater industry.</p>
+        </div>
+        <div class="award-card">
+            <img src="HelpmannAward.PNG.jpg" alt="Helpmann Award">
+            <h3>Helpmann Awards</h3>
+            <p>The Helpmann Awards are Australia’s foremost theater and live performance awards, named after Sir Robert
+                Helpmann, an acclaimed actor, director, and choreographer. Established in 2001 by Live Performance
+                Australia, the awards recognize excellence across a broad range of live performances, including theater,
+                opera, dance, and cabaret. Categories include Best Play, Best Musical, and Best Actor/Actress. The
+                ceremony rotates among major Australian cities and highlights the country’s vibrant performing arts
+                scene.</p>
+        </div>
+        <div class="award-card">
+            <img src="Emmy.PNG.jpg" alt="Emmy Award">
+            <h3>Emmy Awards</h3>
+            <p>The Emmy Awards are the highest honors in the television industry, recognizing excellence in television
+                programming and production. They are divided into three major categories: the Primetime Emmy Awards for
+                outstanding achievement in primetime television, the Daytime Emmy Awards for daytime programming, and
+                the International Emmy Awards for non-American television. Established in 1949 by the Academy of
+                Television Arts & Sciences (ATAS), the Emmys include awards for drama series, comedy series,
+                performances, and technical achievements. The ceremonies are held annually in Los Angeles, showcasing
+                the best in television entertainment.</p>
+        </div>
+        <div class="award-card">
+            <img src="Oscar.PNG.jpg" alt="Oscar Award">
+            <h3>Oscar Awards</h3>
+            <p>The Oscars, officially known as the Academy Awards, are the most prestigious awards in the film industry,
+                presented annually by the Academy of Motion Picture Arts and Sciences (AMPAS). Established in 1929, the
+                awards celebrate excellence in cinematic achievements, including acting, directing, screenplay writing,
+                and technical categories like cinematography and editing. The ceremony, held in Hollywood, California,
+                is a global spectacle that honors the best in international cinema, with categories such as Best
+                Picture, Best Actor/Actress, and Best Director.
+
+            </p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Theatre World. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

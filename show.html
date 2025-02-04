@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Shows</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        h1 a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-align: center;
+            padding-top: 30px;
+        
+        }
+
+        h2:hover {
+            color: #a30202;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-container {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block; 
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img{
+            transform: scale(1.05);
+        }
+        .gallery-item .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%); 
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .gallery-item:hover .description {
+            transform: translateY(0); 
+            color:white;
+        }
+
+        .gallery-item .description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .button-container{
+            text-align: center;
+        }
+        .red-button{
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #790000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+
+        .red-button:hover {
+            background-color: #000000;
+            transform: scale(1.05);
+        }
+        .red-button a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        footer {
+            background-color: black;
+            width: 100%;
+           padding: 10px;
+           margin-top: 50px;
+           font-size: 1.2em;
+           width: 100%;
+           text-align: center;
+        }
+        @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+        
+      }
+
+      header {
+        animation: fadeIn 2s ease-in-out;
+      }
+      h2{
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .gallery-container  {
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      .gallery-item{
+        
+        animation: fadeIn 2s ease-in-out;
+      
+      }
+      footer {
+        animation: fadeIn 2s ease-in-out;
+      }
+      .red-button{
+        animation: fadeIn 2s ease-in-out;
+      }
+      @media (max-width: 400px) {
+            .gallery-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .gallery-item  {
+                width: 100%;
+                height: auto;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .gallery-item .description {
+                padding: 15px;
+            }
+            .button-container {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index  .html">Theatre World</a></h1>
+        <nav>
+            <ul>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="auditorium.html">Auditoriums</a></li>
+                <li><a href="artist gallery.html">Artist Gallery</a></li>
+                <li><a href="show.html">Upcoming Shows</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="index  .html#magazines">Magazines</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>Upcoming Shows</h2>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="crossroads (1).png" alt="crossroads">
+            <div class="description">
+                <h3>Crossroads</h3>
+                <p style="color: orangered;">6:00 PM January 10
+                    8:00 PM January 10
+                </p>
+                <p>"Crossroads" is a play about two strangers who meet in a park and have conversations that become surprisingly meaningful. It explores the impact of ordinary interactions, highlighting humor, warmth, reflection, and the unexpected connections and lessons we find in everyday life.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="gharaurhum.jpg" alt="Ghar Aur Hum">
+            <div class="description">
+                <h3>Ghar Aur Hum</h3>
+                <p style="color: orangered;" >6:30 PM & 8:00 PM January 4</p>
+                <p>"Ghar aur Hum" is a monodrama by Adamya Gaur, told in rhythmic prose, that nostalgically explores the relationships we form with places and people as we outgrow our indextowns and even our country. It follows a boy's journey to manhood, depicting first friendships, fading indextown memories, and the experience of fatherhood.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="TheLionKing.jpg" alt="The Lion King">
+            <div class="description">
+                <h3>The Lion King</h3>
+                <p style="color: orangered;">7:30 PM January 31</p>
+                <p>"The Lion King" musical, adapted from the 1994 film, is a multi-award-winning show playing in London's West End. Using puppetry and a score by Elton John and Tim Rice, it tells the story of Simba, a lion cub who must overcome his uncle Scar to reclaim his rightful place as king. The musical is known for its creative staging, use of African languages in its songs (including hits like "Can You Feel the Love Tonight"), and its appeal to audiences of all ages.</p>
+            </div>
+        </div>
+         <div class="gallery-item">
+            <img src="Mousetrap (1).png" alt="The Mousetrap">
+            <div class="description">
+                <h3>The Mousetrap</h3>
+                <p style="color: orangered;">7:30 PM 15 January </p>
+                <p>The Mousetrap play follows a group of people gathered in a remote part of the countryside as they discover, to their horror, that there is a murderer in their midst. Who can it be? One by one, suspicious characters reveal their sordid pasts until, at the last nerve-shredding moment, the play finally unveils the identity and the motive. An irresistible treat for amateur sleuths everywhere!</p>
+            </div>
+        </div>
+         <div class="gallery-item">
+            <img src="where-is-my-mind.jpg" alt="Where is my mind?">
+            <div class="description">
+                <h3>Where is my mind?</h3>
+                <p style="color: orangered;">8:00 PM January 6</p>
+                <p >"WHERE IS MY MIND?" is an experimental play by Rohit Chauhan that explores how individual minds are shaped by and form communities. Using visual poetry and physical movement, it examines four mentalities—herd, clay, belief, and bondage—through symbolic characters like a preacher, creator, and others. The play, which premiered in Hyderabad in 2021, has since been performed in major Indian cities and featured at the Black Box Theatre Festival in Delhi.</p>
+            </div>
+        </div>
+         <div class="gallery-item">
+            <img src="Wicked.png" alt="Wicked">
+            <div class="description">
+                <h3>Wicked</h3>
+                <p style="color: orangered;">7:30 PM January 31</p>
+                <p> What happened before Dorothy uttered that famous question "there's no place like index"? Meet Elphaba and Glinda. One's a green-skinned witch, and the other's a preppy student who typically gets what she wants. The unlikely friendship of Elphaba and Glinda at Shiz University leads to a powerful tale of love, acceptance, and friendship that will speak to audiences of all ages and delight those familiar with the original wonderful story. </p>
+            </div>
+        </div>
+         <div class="gallery-item">
+            <img src="neigbourtotoro (1).png" alt="The Neighbour Totoro">
+            <div class="description">
+                <h3>The Neighbour Totoro</h3>
+                <p style="color: orangered;">2:00 PM March 22</p>
+                <p > The imaginative production tells the story of young girls, Satsuki and Mei, who relocate to the countryside with their father following their mother’s hospitalization. During their summer adventures, they encounter numerous woodland spirits, including the furry giant Totoro. </p>
+            </div>
+        </div>
+         <div class="gallery-item">
+            <img src="MJTheMusical (1).png" alt="MJ The Musical">
+            <div class="description">
+                <h3>MJ:The Musical</h3>
+                <p style="color: orangered;">7:30 PM January 15 </p><p style="color: orangered;">2:30 PM January 16 </p>
+                <p >"MJ the Musical," a Broadway hit now in London's West End, tells the story of Michael Jackson through the lens of rehearsals for his 1992 Dangerous World Tour.Featuring his iconic songs ("Billie Jean," "Beat It," "Thriller," etc.) and a book by Pulitzer Prize winner Lynn Nottage, the musical explores Jackson's personal life, talent, and creative process.</p>
+                </div>
+            </div>
+        <div class="gallery-item">
+            <img src="Tinaturner (1).png" alt="The Tina Turner Musical">
+            <div class="description">
+            <h3>The Tina Turner Musical </h3>
+            <p style="color: orangered;">7:00 PM January 15</p>
+            <p > Born as Anna Mae Bullock on 26 Nov. 1939 in Nutbush, Tennessee, the recording artist shot to fame in the mid-1950s singing with Ike Turner's Kings of Rhythm. She originally went under the name "Little Ann”, but in 1960, Ike Turner gave her the moniker “Tina Turner.” The musical charts Tina's life away from the public eye too, notably how Tina split from Ike Turner in 1976 after being a victim of domestic abuse. Nowadays, Tina Turner lives in Küsnacht, Switzerland. </p>
+            </div>
+        </div>
+    </div> 
+    <div class="button-container">
+    <button class="red-button"><a href="ticket.html">Get Tickets Here</a></button>     
+        <footer>
+            <p>© 2025 Theatre World. All rights reserved.</p>
+        </footer>
+</body>
+</html>

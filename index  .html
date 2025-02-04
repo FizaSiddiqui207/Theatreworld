@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theatre World</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, rgba(51, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(62, 0, 0, 1) 100%);
+            color: #333;
+            margin: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        main {
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+
+        button {
+            padding: 10px 20px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+        }
+
+
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #ab0000;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        section h2:hover {
+            color: #292929;
+        }
+
+        section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 1024px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .gallery img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+
+            button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav ul li {
+                margin: 0 5px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            section p {
+                font-size: 1em;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        
+
+        header {
+            animation: fadeIn 2s ease-in-out;
+        }
+        #main-content {
+            animation: fadeIn 2s ease-in-out;
+        }
+ 
+        
+        
+
+        .magazine-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <div id="main-content">
+        <header>
+            <h1>Theatre World</h1>
+            <nav>
+                <ul>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="auditorium.html">Auditoriums</a></li>
+                    <li><a href="artist gallery.html">Artist Gallery</a></li>
+                    <li><a href="show.html">Upcoming Shows</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                    <li><a href="#magazines">Magazines</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="auditoriums">
+                <h2>Auditoriums</h2>
+
+                <div class="gallery">
+                    <img src="GlobeTheatre.PNG" alt="Artist 1">
+                    <img src="RoyalOpera.PNG" alt="Artist 2">
+                    <img src="Shakespeare.PNG" alt="Artist 3">
+                    <img src="1308182.png" alt="Artist 4">
+
+                </div>
+                <button><a href="auditorium.html">See More</a></button>
+            </section>
+
+            <section id="gallery">
+                <h2>Artist Gallery</h2>
+                <div class="gallery">
+                    <img src="pg1.png" alt="Artist 1">
+                    <img src="pg2.jpg" alt="Artist 2">
+                    <img src="pg3.jpg" alt="Artist 3">
+                    <img src="pn4.jpg" alt="Artist 4">
+                </div>
+                <button><a href="artist gallery.html">See More</a></button>
+            </section>
+
+            <section id="upcoming">
+                <h2>Upcoming Shows</h2>
+
+                <div class="gallery">
+                    <img src="crossroads.jpg" alt="Artist 1">
+                    <img src="ghar-aur-hum.jpg" alt="Artist 2">
+                    <img src="TheLionKing.jpg" alt="Artist 3">
+
+                </div>
+                <button><a href="show.html">See More</a></button>
+            </section>
+
+            <section id="awards">
+                <h2>Awards</h2>
+                <div class="gallery">
+                    <img src="Oscar.PNG.jpg" alt="Artist 1">
+                    <img src="OlivierAward.PNG" alt="Artist 2">
+                    <img src="HelpmannAward.PNG.jpg" alt="Artist 3">
+
+                </div>
+                <p>Details of prestigious awards for theatrical performances.</p>
+                <button><a href="awards.html">See More</a></button>
+            </section>
+
+            <section id="magazines">
+                <h2>Magazines</h2>
+                <div class="gallery">
+                    <div class="magazine-item">
+                        <img src="journal.jpg" alt="Theatre Journal Cover">
+                        <button><a href="TheatreJournalArticle-1 (1).pdf" target="_blank">Theatre Journal</a></button>
+                    </div>
+                    <div class="magazine-item">
+                        <img src="National Theatre to host an exhibition of its most â__adventurousâ__ posters, curated by Rick Poyner.png"
+                            alt="National Theatre Poster Exhibition">
+                        <button><a href="Theatre magazine Volume 3 (1903).pdf" target="_blank">The Theatre</a></button>
+                    </div>
+                    <div class="magazine-item">
+                        <img src="theatre arts.jpg" alt="Theatre Arts Magazine Cover">
+                        <button><a href="theatrearts01newyuoft.pdf" target="_blank">Theatre Arts</a></button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="theatre-speak">
+                <h2>Theatre Speak</h2>
+                <p>About theatre language and terminology.</p>
+                <button><a href="speak.html">See More</a></button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Theatre World. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+
+       
+
+
+        $(document).on('click', 'nav a', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                const hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 50
+                }, 800);
+            }
+        });
+
+        $(window).on('scroll', function () {
+            $('section').each(function () {
+                const windowHeight = $(window).height();
+                const elementTop = $(this).offset().top;
+                const elementBottom = elementTop + $(this).outerHeight();
+
+                if (elementTop < windowHeight && elementBottom > 0) {
+                    $(this).addClass('in-view');
+                } else {
+                    $(this).removeClass('in-view');
+                }
+            });
+        });
+
+        $(window).trigger('scroll');
+    </script>
+</body>
+
+</html>

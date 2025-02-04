@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auditorium Page</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(51, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 35%,
+          rgba(62, 0, 0, 1) 100%
+        );
+       
+      }
+      header {
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        h1 a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+      section  {
+        
+        background-color: black;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        color: white;
+        padding: 20px 0;
+        
+        
+      }
+      section:hover {
+        color: #a30202;
+        transition: color 0.3s ease, color 0.3s ease;
+      }
+      
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        background: rgb(0, 0, 0);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .card img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+
+        transition: transform 0.5s;
+      }
+
+      .card:hover img {
+        transform: scale(1.1);
+      }
+
+      h3 {
+        color: #b30202;
+      }
+
+      .card-description {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .card-description p {
+        color: #ffffff;
+      }
+
+      .card:hover .card-description p {
+        animation: fadeInUp 0.5s;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      header {
+        animation: fadeIn 2s ease-in-out;
+      }
+      section {
+        animation: fadeIn 2s ease-in-out;
+      }
+      .container .card {
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      footer{
+            
+           background-color: black; 
+           padding: 10px;
+           margin-top: 50px;
+           font-size: 1.2em;
+           
+       }
+
+       footer p {
+           color: white;
+           text-align: center;
+       }
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1><a href="index  .html">Theatre World</a></h1>
+      <nav>
+          <ul>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="auditorium.html">Auditoriums</a></li>
+              <li><a href="artist gallery.html">Artist Gallery</a></li>
+              <li><a href="show.html">Upcoming Shows</a></li>
+              <li><a href="awards.html">Awards</a></li>
+              <li><a href="index  .html#magazines">Magazines</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
+          </ul>
+      </nav>
+  </header>
+    <section>
+      <h2>Auditoriums</h2>
+      <p>Explore our state-of-the-art auditoriums</p>
+    </section>
+
+    <div class="container">
+      <div class="card">
+        <img src="GlobeTheatre.PNG" alt="Auditorium 1" />
+        <div class="card-description">
+          <h3>NATIONAL THEATRE</h3>
+          <p>
+            The National Theatre, officially known as the Royal National
+            Theatre, is one of the United Kingdom’s most prominent performing
+            arts venues. Located on London’s South Bank, it was established in
+            1963 and is renowned for producing a diverse range of plays,
+            including classics, modern works, and new writing. With multiple
+            stages, including the Olivier Theatre, the Lyttelton Theatre, and
+            the Dorfman Theatre, it serves as a hub for innovation and
+            excellence in British theater.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="1308182.png" alt="Auditorium 2" />
+        <div class="card-description">
+          <h3>GLOBAL THEATRE</h3>
+          <p>
+            The Globe Theatre is an iconic venue in London, originally built in
+            1599 by Shakespeare’s playing company. The modern reconstruction,
+            Shakespeare’s Globe, opened in 1997 near the original site and
+            serves as a faithful reproduction of the Elizabethan-era playhouse.
+            It is dedicated to performing Shakespeare’s works and other
+            period-appropriate plays, offering audiences an authentic experience
+            with its open-air stage and historical design.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="RoyalOpera.PNG" alt="Auditorium 3" />
+        <div class="card-description">
+          <h3>ROYAL OPERA HOUSE </h3>
+          <p>
+            The Royal Opera House, located in London’s Covent Garden, is a
+            world-renowned venue for opera and ballet. Originally built in 1732,
+            it is index to both The Royal Opera and The Royal Ballet. Known for
+            its grand architecture and state-of-the-art facilities, the venue
+            stages a diverse repertoire of classical and contemporary works,
+            attracting top artists and audiences from around the globe. It is a
+            cornerstone of British cultural life.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Shakespeare.PNG" alt="Auditorium 4" />
+        <div class="card-description">
+          <h3>SHAKESPEARE AUDITORIUM</h3>
+          <p>
+            The Shakespeare Auditorium typically refers to theaters dedicated to
+            staging the works of William Shakespeare. While there isn’t a
+            singular Shakespeare Auditorium globally, venues like the Royal
+            Shakespeare Theatre in Stratford-upon-Avon serve as iconic spaces
+            for Shakespearean performances. These auditoriums are designed to
+            reflect traditional Elizabethan staging, fostering an immersive
+            experience for audiences to appreciate the Bard’s timeless plays.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 Theatre World. All rights reserved.</p>
+  </footer>
+
+
+    <script>
+      $(document).ready(function () {
+        $(".card").hover(
+          function () {
+            $(this)
+              .find(".card-description")
+              .addClass("animate__animated animate__fadeInUp");
+          },
+          function () {
+            $(this)
+              .find(".card-description")
+              .removeClass("animate__animated animate__fadeInUp");
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

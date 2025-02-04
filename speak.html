@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater Speak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: rgb(51,0,0);
+            background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1em;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .theater-box {
+            background-color: #444;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .theater-box h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .dummy-text {
+            font-size: 1em;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .theater-box:hover {
+            transform: scale(1.05);
+            background-color: #5a5a5a;
+        }
+
+        footer {
+            background-color: #450000;
+            padding: 10px;
+            margin-top: 50px;
+            font-size: 1em;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        header {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .main-content .theater-box {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .theater-box:hover {
+            background-color: #850000;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 0.9em;
+            }
+
+            .theater-box {
+                width: 90%;
+            }
+
+            .theater-box h2 {
+                font-size: 1.3em;
+            }
+
+            .dummy-text {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 0.8em;
+            }
+
+            .dummy-text {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Theater Speak</h1>
+        <p>Your guide to the world of theater terminology and language.</p>
+    </header>
+
+    <section class="main-content">
+        <div class="theater-box" id="act1">
+            <h2>Act 1: The Language of Theater</h2>
+            <p class="dummy-text">In theater, the language is essential to conveying emotions and meaning. From the dialogue delivered by the actors to the subtleties of body language, each element serves to tell the story. "Blocking" is the process by which actors are directed on where to move on stage to create a visual flow and convey meaning through spatial arrangement. The language of theater is not just about words, but also the timing, pauses, and rhythm, which help shape the audience's perception of the narrative.</p>
+            <p class="dummy-text">In addition, the concept of "stage directions" is crucial. These are written instructions in a script that tell actors where to stand or move, what to do with their props, and how to interact with other characters. Stage directions are vital for creating tension, drama, and pacing in a performance. Directors use these to guide the actors and ensure the performance is aligned with their vision.</p>
+        </div>
+
+        <div class="theater-box" id="act2">
+            <h2>Act 2: The Role of Improvisation</h2>
+            <p class="dummy-text">Improvisation, or "improv," is a cornerstone of theatrical performance that allows actors to engage with the moment and respond to the unexpected. Often used in comedy, improvisation helps actors stay flexible, create spontaneous dialogue, and form new ideas in real-time. A key principle of improv is the "Yes, and..." rule, where one actor accepts what the other has offered and builds upon it. This principle helps create a seamless, collaborative performance where the actors are actively listening and adapting.</p>
+            <p class="dummy-text">Improvisation also fosters creativity and sharpens an actor's instincts. It enables actors to take risks and explore new ways to express a character's emotions. While not all performances are improvised, many productions use improv techniques in rehearsals to help actors get into character, understand their motivations, and enhance their performance. It's a powerful tool for both rehearsals and live performances where flexibility is required.</p>
+        </div>
+
+        <div class="theater-box" id="act3">
+            <h2>Act 3: The Power of Monologues</h2>
+            <p class="dummy-text">Monologues are powerful speeches delivered by a single character that reveal their innermost thoughts and feelings. These speeches often provide significant insight into a character’s motivations, struggles, or transformations. A well-delivered monologue can be a key turning point in a play, offering the audience a deeper understanding of the character’s psychological and emotional state. Famous examples include Hamlet’s soliloquy “To be, or not to be” and Juliet’s speech in "Romeo and Juliet" where she contemplates love and fate.</p>
+            <p class="dummy-text">Monologues are often used to create dramatic tension, as the character's speech may hold crucial information that moves the plot forward. They allow actors to showcase their vocal and emotional range, providing a moment of intense focus and connection with the audience. In some cases, a character’s monologue can become iconic, leaving a lasting impact on audiences and the history of theater.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us at: theater@speak.com</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.theater-box').hover(
+                function() {
+                    $(this).animate({ opacity: 0.7 }, 300);
+                },
+                function() {
+                    $(this).animate({ opacity: 1 }, 300);
+                }
+            );
+        });
+    </script>
+</body>
+</html>

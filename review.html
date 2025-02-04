@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page with Star Ratings</title>
+    <style>
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+    font-family: 'Arial', sans-serif;
+    background: rgb(51,0,0);
+background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+    color: #ffffff;
+    text-align: center;
+    
+}
+
+   
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+
+        h1 a{
+            text-decoration: none;
+            color: white;
+        }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+h2{
+    padding-top: 30px;
+}
+
+
+.review-form {
+    background: rgb(51,0,0);
+background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.53);
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#reviewerName, #reviewText {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+#reviewText {
+    height: 120px;
+}
+
+button {
+    background-color: #660000;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+.rating {
+    margin: 15px 0;
+}
+
+.star {
+    font-size: 2.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 2s ease, transform 0.2s;
+}
+
+.star:hover, .star.selected {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+
+.reviews-list {
+    background: rgb(51,0,0);
+background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.53);
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.review-card {
+    background-color: #fffbfb;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 5px solid #af4c4c;
+    border-radius: 8px;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+header{
+    animation: fadeIn 2s ease-in-out;
+}
+
+.review-card h3 {
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.review-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.review-card .stars {
+    color: #FFD700;
+}
+
+.error-message {
+    color: #ff1900;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .review-form {
+        padding: 15px;
+    }
+}
+
+
+        h2 {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+           
+            padding: 10px;
+            margin-top: 50px;
+            font-size: 1.2em;
+            width: 100%;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index  .html">Theatre World</a></h1>
+        <nav>
+            <ul>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="auditorium.html">Auditoriums</a></li>
+                <li><a href="artist gallery.html">Artist Gallery</a></li>
+                <li><a href="show.html">Upcoming Shows</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="index  .html#magazines">Magazines</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Leave Your Review</h2> 
+        
+        
+        <div class="review-form">
+            <input type="text" id="reviewerName" placeholder="Your Name" required>
+            <textarea id="reviewText" placeholder="Write your review here..." required></textarea>
+            
+            
+            <div class="rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            
+            <button id="submitReview">Submit Review</button>
+            <div id="error-message" class="error-message"></div>
+        </div>
+
+        
+        <div class="reviews-list">
+            <h2>User Reviews</h2>
+            <div id="reviewsContainer">
+                
+            </div>
+        </div>
+        <footer>
+            <p>© 2025 Theatre World. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script >
+        $(document).ready(function() {
+    
+    $('.star').hover(function() {
+        var rating = $(this).data('value');
+        highlightStars(rating);
+    }, function() {
+        var rating = getSelectedRating();
+        highlightStars(rating);
+    });
+
+    
+    $('.star').click(function() {
+        var rating = $(this).data('value');
+        setRating(rating);
+    });
+
+    
+    $('#submitReview').click(function() {
+        var name = $('#reviewerName').val().trim();
+        var reviewText = $('#reviewText').val().trim();
+        var rating = getSelectedRating();
+
+        
+        if (name === "") {
+            showErrorMessage("Name is required.");
+        } else if (reviewText === "") {
+            showErrorMessage("Review text is required.");
+        } else if (rating === 0) {
+            showErrorMessage("Please select a rating.");
+        } else {
+            
+            $('#error-message').hide();
+
+            
+            var newReview = `
+                <div class="review-card">
+                    <h3>${name}</h3>
+                    <p>${reviewText}</p>
+                    <div class="stars">${getStars(rating)}</div>
+                </div>
+            `;
+
+            
+            $('#reviewsContainer').prepend(newReview);
+
+            
+            $('#reviewerName').val('');
+            $('#reviewText').val('');
+            setRating(0); 
+        }
+    });
+
+    
+    function highlightStars(rating) {
+        $('.star').each(function() {
+            var starValue = $(this).data('value');
+            if (starValue <= rating) {
+                $(this).addClass('selected');
+            } else {
+                $(this).removeClass('selected');
+            }
+        });
+    }
+
+    
+    function getSelectedRating() {
+        var rating = 0;
+        $('.star.selected').each(function() {
+            rating = $(this).data('value');
+        });
+        return rating;
+    }
+
+    
+    function setRating(rating) {
+        $('.star').each(function() {
+            var starValue = $(this).data('value');
+            if (starValue <= rating) {
+                $(this).addClass('selected');
+            } else {
+                $(this).removeClass('selected');
+            }
+        });
+    }
+
+        function getStars(rating) {
+        var stars = '';
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '★';
+            } else {
+                stars += '☆';
+            }
+        }
+        return stars;
+    }
+
+    
+    function showErrorMessage(message) {
+        $('#error-message').text(message).fadeIn();
+    }
+});
+
+    </script>
+
+</body>
+</html>

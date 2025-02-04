@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(62,0,0,1) 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, rgba(87, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(157, 0, 0, 1) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h6{
+            font-size: 2rem;
+
+        }
+        h6 a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #a30202;
+            bottom: -5px;
+            left: 50%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bd0101;
+            color: white;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        h6 a{
+            text-decoration: none;
+            color: white;
+        }
+
+        
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-align: center;
+            padding-top: 10px;
+        }
+        h1:hover{
+            color: #a30202;
+            transition: color 0.3s ease, color 0.3s ease;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(0); 
+        }
+
+        .gallery-item img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px 0 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .description {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .gallery-item .description h3 {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item .description p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .gallery-item .description {
+                padding: 15px;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        
+        header {
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            animation: fadeIn 1s ease-in-out;
+        }
+        footer{
+            background-color: black;
+            width: 100%;
+           padding: 10px;
+           margin-top: 50px;
+           font-size: 1.2em;
+           width: 100%;
+       }
+
+       footer p {
+           color: white;
+           text-align: center;
+       }
+        
+    </style>
+</head>
+<body>
+    
+        <header>
+            <h6><a href="index  .html">Theatre World</a></h6>
+            <nav>
+                <ul>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="auditorium.html">Auditoriums</a></li>
+                    <li><a href="artist gallery.html">Artist Gallery</a></li>
+                    <li><a href="show.html">Upcoming Shows</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                    <li><a href="index  .html#magazines">Magazines</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+    <h1>Artist Gallery</h1>
+    
+    <div class="gallery-container">
+       
+        <div class="gallery-item">
+            <img src="pg1.png" alt="Art 1">
+            <div class="description">
+                <h3>Auguste Rodin</h3>
+                <p>François Auguste René Rodin was a French sculptor generally considered the founder of modern sculpture. He was schooled traditionally and took a craftsman-like approach to his work. Rodin possessed a unique ability to model a complex, turbulent, and deeply pocketed surface in clay. He is known for such sculptures as The Thinker, Monument to Balzac, The Kiss, The Burghers of Calais, and The Gates of Hell.
+                    Many of Rodin's most notable sculptures were criticized, as they clashed with predominant figurative sculpture traditions in which works were decorative, formulaic, or highly thematic. Rodin's most original work departed from traditional themes of mythology and allegory. He modeled the human body with naturalism, and his sculptures celebrate individual character and physicality. Although Rodin was sensitive to the controversy surrounding his work, he refused to change his style, and his continued output brought increasing favor from the government and the artistic community.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg2.jpg" alt="Art 2">
+            <div class="description">
+                <h3>Gothic Art</h3>
+                <p>Gothic is a term denoting styles in the art and architecture of the West from about the mid-12th century to the 15th (Italy) or mid-16th (elsewhere). It was first used by Vasari to describe pre-Renaissance architecture, following humanist writers who had associated architecture before Brunelleschi with gente barbara or Germans. From the 18th century, when antiquaries distinguished a Romanesque style, Gothic was restricted to the centuries between Romanesque and the Renaissance.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg3.jpg" alt="Art 3">
+            <div class="description">
+                <h3>Tonalism</h3>
+                <p>Style of American painting that appeared between c. 1880 and 1920, defined by evocative atmospheric effects and a limited palette of soft, mostly dark colours. Its primary influences were French Barbizon school ideas as adopted by George Inness and William Morris Hunt, and the aesthetic movement, as embodied by James McNeill Whistler. The style is characterized by soft, diffused light, muted tones, and hazily outlined objects, all of which imbue the works with a strong sense of mood. The term was applied especially to landscape painting in which nature is presented as serene or mysterious, never disquieting or dramatic.
+                </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pn4.jpg" alt="Art 4">
+            <div class="description">
+                <h3>William T.Sherman
+                </h3>
+                <p>In 1864, Sherman set out to demolish the Confederates’ will and capacity to fight. In Atlanta, he destroyed everything of potential military value: railroads, factories, and supply depots. His army then cut a 285-mile path of destruction to the coastal town of Savannah. Thousands of formerly enslaved African Americans followed Sherman’s army through Georgia. Hoping to provide for some of these people, on January 16, 1865, Sherman issued Special Field Order No. 15, which re-allocated four hundred thousand acres of land in forty-acre segments to Black families.
+                </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pn5.jpg" alt="Art 5">
+            <div class="description">
+                <h3>Madame Hilligsberg
+                </h3>
+                <p>Marie-Louise Hilligsberg (c1765/70?–1804) was a French dancer whose performances dazzled the London public in the last decade of the 18th century. She trained in Paris with the great dancer and choreographer Gaëtan Vestris and first came to London in 1787. She joined the King’s Theatre making her first appearance in Dec 1787 in Noverre’s ballet ‘Les offrandes à l’amour’. </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg6.jpg" alt="Art 6">
+            <div class="description">
+                <h3>David with the Head of Goliath
+                </h3>
+                <p>Normally understood to refer to the high point of Bolognese achievements in the visual arts, brought about in the late 16th and early 17th centuries by painters such as the Carracci, Guido Reni,Francesco Albani, Lanfranco, and Guercino. As a result of the reforms brought about by the Council of Trent mid-century, Bologna was very much in the vanguard of the Catholic Church. Annibale was called to Rome in 1595 to work for Cardinal Farnese in his palace there, where he produced his great Fresco cycle The Loves of the Gods.
+                </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg7.jpg" alt="Art 7">
+            <div class="description">
+                <h3>Naturalism</h3>
+                <p>Term that has been used with many different meanings. It is predominantly applied to painting, and in its broadest sense it describes any art depicting actual, rather than religious and imaginary, subject-matter. It implies a style in which the artist tries to observe and then faithfully record the subject before him without deliberate idealization or stylization. The term has been used more specifically and (sometimes confusingly) in relation to 19th-century art, particularly French art, both as a synonym for REALISM and as a label for certain mutually exclusive subcurrents of it. Nevertheless, a more selfconscious development, Naturalism, can be discerned in the 19th century, which is centred on the ideas of Jules-Angoine Castagnary and Emilie Zola.
+                </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg8.jpg" alt="Art 8">
+            <div class="description">
+                <h3>Die Brücke
+                </h3>
+                <p>The Künstlergruppe Brücke was founded on 7 June 1905 in Dresden by four architecture students: They were united by a common aim to break new boundaries in art.
+                    They were self-taught as artists, their only training from private drawing lessons. They nevertheless acted as a group immediately, seeing themselves as pioneers who would change the world from its very basis and revive art. In their first manifesto, which they called a Programm (1906), they named the impulses behind their work: faith in the future, the strength of youth, the value of directness and authenticity, and the rejection of the older forces of the establishment. Although the use of pure colour and a more two-dimensional treatment of subject-matter had obvious similarities with Fauvist art, and in particular that of Henri Matisse, whose work the group saw at an exhibition in Berlin in 1908, the artists of Die Brücke aimed to encompass all life, rather than just the field of art, with their radical stance.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg9.jpg" alt="Art 9">
+            <div class="description">
+                <h3>Spanish Eclecticism</h3>
+                <p>Spanish Eclecticism was a movement among Spanish painters from 1845 to 1890. It was named after the tendency by artists to select from among multiple established styles of that era. A sensibility of relative renewal dominated the rest of Europe, while in Spain, Realism and Impressionism were slow to take hold. The movement is also said to be associated with the idea that models and innovations had run their course.
+                </p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="pg10.jpg" alt="Art 10">
+            <div class="description">
+                <h3>Antwerp school</h3>
+                <p>Modern name for a group of unidentified workshops that produced embossed parade armours and shields for the court of Henry II in the third quarter of the 16th century. Some of these armours were produced by Etienne Delaune in a hypothetical French royal workshop assumed to be in Paris and long known as the Louvre School of Armourers. It was discovered that some of these armours had been decorated in the early 1560s in Antwerp by a goldsmith called Elisius Libaerts (fl 1557–64), who made armours for the court of Eric XIV of Sweden. It is possible that Elisius Libaerts worked for a time in Paris and that some of his armours were designed for the French court. The uncertainties about provenance have led to the designation ‘Antwerp–Louvre school’.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Theatre World. All rights reserved.</p>
+    </footer>
+
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           
+            $(".gallery-item").each(function (index) {
+                $(this)
+                    .delay(index * 200)
+                    .animate({ opacity: 1, transform: "translateY(0)" }, 600);
+            });
+        });
+    </script>
+</body>
+</html>

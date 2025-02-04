@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theatre Show</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(
+          90deg,
+          rgba(51, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 35%,
+          rgba(62, 0, 0, 1) 100%
+        );
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            background: linear-gradient(
+          90deg,
+          rgba(51, 0, 0, 0.521) 0%,
+          rgba(0, 0, 0, 0.523) 35%,
+          rgba(62, 0, 0, 0.521) 100%
+        );
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 90%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .show-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 50%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: brightness(80%);
+        }
+
+        .show-image:hover {
+            transform: scale(1.1);
+            filter: brightness(100%);
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .show-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #6f0700;
+            text-transform: uppercase;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .show-description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #9da5b4;
+            animation: fadeInText 1.8s ease-in-out;
+        }
+
+        .cast {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #8b949e;
+            animation: fadeInText 2s ease-in-out;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: linear-gradient(90deg, #800900, #5b0e00);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background: rgb(143, 0, 0);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(255, 75, 43, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .show-image {
+                max-width: 100%;
+                height: 300px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Harry Potter & The Cursed Child.PNG" alt="Theatre Show" class="show-image">
+        <div class="content">
+            <h1 class="show-title">Harry Potter & The Cursed Child</h1>
+            <p class="show-description"> Harry Potter and the Cursed Child is a play about Harry Potter's son Albus, who befriends the son of his father's rival, Draco Malfoy. The play is set 19 years after the events of the original Harry Potter series, and features a new generation of students at Hogwarts. The play is known for its theatrical magic, spells, and race through time.
+                </p>
+            <p class="cast">Crew:
+                Director: John Tiffany
+                Producer: Sonia Friedman Productions
+Cast:
+David Ricardo-Pearce
+Ellis Rae
+Thomas Aldridge
+Jade Ogugua
+Eve de Leon Allen
+Steve John Shepherd
+Harry Acklowe
+            </p>
+            <div class="buttons">
+                <a href="ticket.html" class="button" id="book-ticket">Book Ticket</a>
+                <a href="review.html" class="button" id="reviews">Reviews</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            
+            $('.button').hover(
+                function() {
+                    $(this).css('box-shadow', '0 6px 15px rgba(255, 75, 43, 0.5)');
+                }, 
+                function() {
+                    $(this).css('box-shadow', 'none');
+                }
+            );
+
+            
+        });
+    </script>
+</body>
+</html>
